@@ -1,0 +1,23 @@
+* {
+  --primary-color: #311b92;
+  --secondary-color: #512da8;
+}
+
+.header {
+  position: fixed;
+  background-color: var(--primary-color);
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+img {
+  height: 10rem;
+  margin: 3px 20px;
+}
+
+p {
+  color: var(--secondary-color);
+}
