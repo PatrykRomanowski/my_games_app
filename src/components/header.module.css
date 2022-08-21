@@ -1,9 +1,16 @@
 * {
   --primary-color: #311b92;
   --secondary-color: #512da8;
+  --bar-color: #673ab7;
+}
+
+p {
+  color: white;
+  margin: 2px;
 }
 
 .header {
+  font-family: "Anton";
   position: fixed;
   background-color: var(--primary-color);
   width: 100%;
@@ -12,12 +19,43 @@
   display: flex;
   justify-content: flex-start;
 }
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-img {
-  height: 10rem;
+.icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.bar {
+  height: 1rem;
+  background-color: white;
+  width: 10rem;
+}
+
+.barConteiner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mainImage {
+  height: 12rem;
   margin: 3px 20px;
 }
 
-p {
-  color: var(--secondary-color);
+.nameConsole {
+  width: 3rem;
+  margin: 0px;
+  margin: 0.5rem 1rem;
+}
+
+.fillBar {
+  background-color: var(--bar-color);
+  width: 50%;
+  height: 100%;
 }
