@@ -1,0 +1,21 @@
+.cardItem {
+  display: flex;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: white;
+  flex-direction: column;
+}
+
+.cardItemHeader {
+  display: flex;
+  font-family: "Anton";
+  color: black;
+  width: 15rem;
+  max-height: 20rem;
+  min-height: 4rem;
+  background-color: grey;
+  border-radius: 14px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+}

@@ -11,7 +11,7 @@ p {
 
 .header {
   font-family: "Anton";
-  position: fixed;
+  position: relative;
   background-color: var(--primary-color);
   width: 100%;
   top: 0;
