@@ -19,7 +19,7 @@ const Header = () => {
     <div className={classes.header}>
       <img className={classes.mainImage} src={pad}></img>
       <div className={classes.chart}>
-        <p>My game status: {gameCounter} </p>
+        <p className={classes.gameCounter}>My game status: {gameCounter} </p>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={switchIcon}></img>
           <p className={classes.nameConsole}>SWITCH </p>

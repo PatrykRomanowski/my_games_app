@@ -2,16 +2,23 @@
   --primary-color: #311b92;
   --secondary-color: #512da8;
   --bar-color: #673ab7;
+  margin: 0;
+  padding: 0;
 }
 
-p {
+.gameCounter,
+.nameConsole {
   color: white;
   margin: 2px;
 }
 
+.gameCounter {
+  margin-bottom: 1rem;
+}
+
 .header {
   font-family: "Anton";
-  position: fixed;
+  position: relative;
   background-color: var(--primary-color);
   width: 100%;
   top: 0;
@@ -41,6 +48,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0.2rem;
 }
 
 .mainImage {
@@ -50,8 +58,7 @@ p {
 
 .nameConsole {
   width: 3rem;
-  margin: 0px;
-  margin: 0.5rem 1rem;
+  margin: 0rem 1rem;
 }
 
 .fillBar {
@@ -62,4 +69,5 @@ p {
 
 .counterGames {
   margin-left: 1rem;
+  color: white;
 }
