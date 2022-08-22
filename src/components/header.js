@@ -24,11 +24,13 @@ const Header = () => {
           <img className={classes.icon} src={switchIcon}></img>
           <p className={classes.nameConsole}>SWITCH </p>
           <div className={classes.bar}></div>
+          <p className={classes.counterGames}>10</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={dsIcon}></img>
           <p className={classes.nameConsole}>3DS </p>
           <div className={classes.bar}></div>
+          <p className={classes.counterGames}>10</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={wiiIcon}></img>
@@ -36,11 +38,13 @@ const Header = () => {
           <div className={classes.bar}>
             <div className={classes.fillBar}></div>
           </div>
+          <p className={classes.counterGames}>10</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={allConsole}></img>
           <p className={classes.nameConsole}>OTHER </p>
           <div className={classes.bar}></div>
+          <p className={classes.counterGames}>10</p>
         </div>
       </div>
     </div>
