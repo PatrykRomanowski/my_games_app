@@ -15,16 +15,14 @@ const ConsoleItem = (props) => {
     });
   }
 
-  console.log(myGame);
-
   const gameList = myGame.map((key) => (
-    <GameItem key={key.key} name={key.games} />
+    <GameItem key={key.id} id={key.id} name={key.games} />
   ));
 
   return (
     <div className={classes.cardItem}>
       <div className={classes.cardItemHeader}>{props.console.myConsole}</div>
-      <InputNewGame />
+      <InputNewGame consoleID={props.consoleID} />
       {gameList}
     </div>
   );

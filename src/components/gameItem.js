@@ -3,6 +3,8 @@ import React from "react";
 import classes from "./gameItem.module.css";
 
 const GameItem = (props) => {
+  console.log(props.id);
+
   return (
     <div className={classes.gameItem}>
       <div className={classes.leftPanel}></div>

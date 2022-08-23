@@ -5,7 +5,7 @@ import firebaseURL from "../consts/firebase";
 
 import classes from "./gamesCard.module.css";
 
-const GamesCard = () => {
+const GamesCard = (props) => {
   const [myConsole, setMyConsole] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const GamesCard = () => {
   }, []);
 
   const gameList = myConsole.map((item) => (
-    <ConsoleItem key={item.id} console={item} />
+    <ConsoleItem key={item.id} consoleID={item.id} console={item} />
   ));
 
   // console.log(wiiGames);
@@ -43,7 +43,7 @@ const GamesCard = () => {
         {/* <ConsoleItem items={wiiGames} console={myConsole} />
         <ConsoleItem items={wiiGames} console={myConsole} />
         <ConsoleItem items={wiiGames} console={myConsole} /> */}
-      </div>{" "}
+      </div>
     </>
   );
 };
