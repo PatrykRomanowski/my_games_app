@@ -5,18 +5,26 @@ import classes from "./inputNewGame.module.css";
 const InputNewGame = (props) => {
   const newGameInput = useRef();
 
-  const buttonHandler = (event) => {
+  const buttonHandler = async (event) => {
     event.preventDefault();
 
     const enterdedGame = newGameInput.current.value;
 
-    const URL =
+    const postURL =
       "https://mygames-12607-default-rtdb.firebaseio.com/myGames/console/" +
       props.consoleID +
       "/games.json";
+
+    const respone = await fetch(postURL, {
+      method: "POST",
+      body: JSON.stringify({
+        game: enterdedGame,
+      }),
+    });
+
+    props.addNewGame();
   };
 
-  console.log(props.consoleID);
   return (
     <div className={classes.container}>
       <input className={classes.input} ref={newGameInput} />
