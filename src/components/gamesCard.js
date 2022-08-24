@@ -7,19 +7,6 @@ import classes from "./gamesCard.module.css";
 
 const GamesCard = (props) => {
   const [myConsole, setMyConsole] = useState([]);
-  const [gamesIsReaded, setGamesIsReades] = useState();
-
-  useEffect(() => {
-    setGamesIsReades(false);
-  }, []);
-
-  const toogleFunction = () => {
-    console.log(gamesIsReaded);
-    setGamesIsReades(!gamesIsReaded);
-    console.log(gamesIsReaded);
-
-    console.log("dziala card");
-  };
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -36,23 +23,17 @@ const GamesCard = (props) => {
           gamesOnConsole: responseData[key].games,
         });
       }
-
       setMyConsole(responseMyConsole);
     };
     fetchGames();
-  }, gamesIsReaded);
+  }, []);
 
   const gameList = myConsole.map((item) => (
-    <ConsoleItem
-      toogleFunction={toogleFunction}
-      key={item.id}
-      consoleID={item.id}
-      console={item}
-    />
+    <ConsoleItem key={item.id} consoleID={item.id} console={item} />
   ));
-
   // console.log(wiiGames);
 
+  console.log("wykonuje sie");
   return (
     <>
       <div className={classes.card}>

@@ -17,13 +17,20 @@ const ConsoleItem = (props) => {
         games: props.console.gamesOnConsole[key].game,
       });
     }
-
     setMyGame(fetchMyGame);
   }, []);
 
-  const addNewGame = (item) => {
-    props.toogleFunction();
+  const addNewGame = (enterdedGame) => {
+    console.log(enterdedGame);
+    const newItem = {
+      id: "333",
+      games: enterdedGame,
+    };
+
+    setMyGame((prev) => [...prev, newItem]);
+
     console.log("dziala item");
+    console.log(myGame);
   };
 
   const gameList = myGame.map((key) => (

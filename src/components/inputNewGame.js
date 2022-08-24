@@ -21,8 +21,8 @@ const InputNewGame = (props) => {
         game: enterdedGame,
       }),
     });
-
-    props.addNewGame();
+    console.log(enterdedGame);
+    props.addNewGame(enterdedGame);
   };
 
   return (
