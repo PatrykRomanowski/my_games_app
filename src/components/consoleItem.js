@@ -34,7 +34,12 @@ const ConsoleItem = (props) => {
   };
 
   const gameList = myGame.map((key) => (
-    <GameItem key={key.id} id={key.id} name={key.games} />
+    <GameItem
+      key={key.id}
+      gameID={key.id}
+      name={key.games}
+      consoleID={props.consoleID}
+    />
   ));
 
   return (

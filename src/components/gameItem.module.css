@@ -20,18 +20,6 @@
   text-transform: uppercase;
 }
 
-.leftPanel {
-  width: 20%;
-  background-color: green;
-  height: 100%;
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .rightPanel {
   width: 20%;
   background-color: green;
@@ -42,10 +30,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.deleteButton {
-  height: 80%;
 }
 
 .moreButton {
