@@ -24,16 +24,16 @@ const GamesCard = (props) => {
         });
       }
       setMyConsole(responseMyConsole);
+      console.log(responseMyConsole);
     };
+
     fetchGames();
   }, []);
 
   const gameList = myConsole.map((item) => (
     <ConsoleItem key={item.id} consoleID={item.id} console={item} />
   ));
-  // console.log(wiiGames);
 
-  console.log("wykonuje sie");
   return (
     <>
       <div className={classes.card}>

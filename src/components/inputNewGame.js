@@ -15,7 +15,7 @@ const InputNewGame = (props) => {
       props.consoleID +
       "/games.json";
 
-    const respone = await fetch(postURL, {
+    const response = await fetch(postURL, {
       method: "POST",
       body: JSON.stringify({
         game: enterdedGame,
@@ -23,6 +23,7 @@ const InputNewGame = (props) => {
     });
     console.log(enterdedGame);
     props.addNewGame(enterdedGame);
+    newGameInput.current.value = "";
   };
 
   return (

@@ -2,20 +2,24 @@ import { useReducer } from "react";
 import GameContext from "./game-context";
 
 const defaultGameState = {
-  gameCounter: 0,
+  totalGames: 0,
   items: [],
 };
 
 const gameReducer = (state, action) => {
-  if (action.type === "ADD") {
-    const updateGameCounter = state.gameCounter + 1;
+  if (action.type === "ADD_ITEM") {
+    const updateGameCounter = state.totalGames + 1;
+  }
+
+  if (action.type === "INITIAL_ITEM") {
+    const updateGameCounter = state.totalGames + action.item.totalGames;
 
     let updatedItems = [...state.items];
     updatedItems = state.items.concat(action.item);
 
     return {
       items: updatedItems,
-      gameCounter: updateGameCounter,
+      totalGames: updateGameCounter,
     };
   }
 
@@ -29,13 +33,18 @@ const GameProvider = (props) => {
   );
 
   const addItemHandler = (item) => {
-    dispatchGameState({ type: "ADD", item: item });
+    dispatchGameState({ type: "ADD_ITEM", item: item });
+  };
+
+  const initilaItemHandler = (item) => {
+    dispatchGameState({ type: "INITIAL_ITEM", item: item });
   };
 
   const gameContext = {
-    gameCounter: gameState.gameCounter,
+    totalGames: gameState.totalGames,
     items: gameState.items,
-    addItem: addItemHandler,
+    addGame: addItemHandler,
+    initialGame: initilaItemHandler,
   };
 
   return (

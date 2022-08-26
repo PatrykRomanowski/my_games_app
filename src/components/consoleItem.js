@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import classes from "./consoleItem.module.css";
 
 import GameItem from "./gameItem";
 import InputNewGame from "./inputNewGame";
 
+import GameContext from "../store/game-context";
+
 const ConsoleItem = (props) => {
   const [myGame, setMyGame] = useState([]);
+
+  const gameCtx = useContext(GameContext);
+  console.log("console item");
 
   useEffect(() => {
     const fetchMyGame = [];
@@ -18,6 +23,13 @@ const ConsoleItem = (props) => {
       });
     }
     setMyGame(fetchMyGame);
+
+    const counterGameList = fetchMyGame.length;
+    const newGameForCounterGames = {
+      totalGames: counterGameList,
+      consoleName: props.console.myConsole,
+    };
+    gameCtx.initialGame(newGameForCounterGames);
   }, []);
 
   const addNewGame = (enterdedGame) => {
@@ -30,8 +42,15 @@ const ConsoleItem = (props) => {
     setMyGame((prev) => [...prev, newItem]);
 
     console.log("dziala item");
-    console.log(myGame);
+    startGamecounter();
   };
+
+  const deleteGameHandler = (itemID) => {
+    const newListGame = myGame.filter((item) => item.id !== itemID);
+    setMyGame(newListGame);
+  };
+
+  const startGamecounter = () => {};
 
   const gameList = myGame.map((key) => (
     <GameItem
@@ -39,6 +58,7 @@ const ConsoleItem = (props) => {
       gameID={key.id}
       name={key.games}
       consoleID={props.consoleID}
+      deleteGameHandler={deleteGameHandler}
     />
   ));
 

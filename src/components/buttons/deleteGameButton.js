@@ -18,6 +18,7 @@ const DeleteGameButton = (props) => {
       ".json";
 
     console.log(deleteURL);
+    props.deleteGameHandler(props.gameID);
 
     fetch(deleteURL, { method: "DELETE" }).then(() =>
       setStatus("Delete successful")

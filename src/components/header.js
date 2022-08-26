@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import classes from "./header.module.css";
+
+import GameContext from "../store/game-context";
 
 import pad from "../assets/pad2.jpg";
 import switchIcon from "../assets/icons/switch.png";
@@ -11,9 +13,11 @@ import allConsole from "../assets/icons/allConsole.png";
 const Header = () => {
   const [gameCounter, setGameCounter] = useState(0);
 
+  const gameCtx = useContext(GameContext);
+
   useEffect(() => {
-    setGameCounter(20);
-  }, []);
+    setGameCounter(gameCtx.totalGames);
+  }, [gameCtx]);
 
   return (
     <div className={classes.header}>
