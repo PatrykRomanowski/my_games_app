@@ -9,6 +9,20 @@ const defaultGameState = {
 const gameReducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
     const updateGameCounter = state.totalGames + 1;
+
+    console.log(action.item);
+
+    const indexOfConsole = state.items.findIndex(
+      (item) => item.consoleName === action.item
+    );
+
+    state.items[indexOfConsole].totalGames =
+      state.items[indexOfConsole].totalGames + 1;
+
+    return {
+      items: state.items,
+      totalGames: updateGameCounter,
+    };
   }
 
   if (action.type === "INITIAL_ITEM") {

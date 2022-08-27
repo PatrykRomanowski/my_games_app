@@ -35,7 +35,7 @@ const ConsoleItem = (props) => {
   const addNewGame = (enterdedGame) => {
     console.log(enterdedGame);
     const newItem = {
-      id: "333",
+      id: Math.random() * 9999999,
       games: enterdedGame,
     };
 
@@ -43,6 +43,7 @@ const ConsoleItem = (props) => {
 
     console.log("dziala item");
     startGamecounter();
+    gameCtx.addGame(props.console.myConsole);
   };
 
   const deleteGameHandler = (itemID) => {

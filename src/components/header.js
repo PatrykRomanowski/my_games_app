@@ -11,30 +11,46 @@ import wiiIcon from "../assets/icons/WII.png";
 import allConsole from "../assets/icons/allConsole.png";
 
 const Header = () => {
-  const [gameCounter, setGameCounter] = useState(0);
+  const [allGameCounter, setAllGameCounter] = useState(0);
+  const [allWiiGame, setAllWiiGame] = useState(0);
+  const [allSwitchGame, setAllSwitchGame] = useState(0);
+  const [all3dsGame, setAll3dsGame] = useState(0);
+  const [allOtherGame, setAllOtherGame] = useState(0);
 
   const gameCtx = useContext(GameContext);
 
   useEffect(() => {
-    setGameCounter(gameCtx.totalGames);
+    setAllGameCounter(gameCtx.totalGames);
+
+    gameCtx.items.forEach((item) => {
+      if (item.consoleName === "WII") {
+        setAllWiiGame(item.totalGames);
+      } else if (item.consoleName === "3DS") {
+        setAll3dsGame(item.totalGames);
+      } else if (item.consoleName === "SWITCH") {
+        setAllSwitchGame(item.totalGames);
+      } else {
+        setAllOtherGame(allOtherGame + item.totalGames);
+      }
+    });
   }, [gameCtx]);
 
   return (
     <div className={classes.header}>
       <img className={classes.mainImage} src={pad}></img>
       <div className={classes.chart}>
-        <p className={classes.gameCounter}>My game status: {gameCounter} </p>
+        <p className={classes.gameCounter}>My game status: {allGameCounter} </p>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={switchIcon}></img>
           <p className={classes.nameConsole}>SWITCH </p>
           <div className={classes.bar}></div>
-          <p className={classes.counterGames}>10</p>
+          <p className={classes.counterGames}>{allSwitchGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={dsIcon}></img>
           <p className={classes.nameConsole}>3DS </p>
           <div className={classes.bar}></div>
-          <p className={classes.counterGames}>10</p>
+          <p className={classes.counterGames}>{all3dsGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={wiiIcon}></img>
@@ -42,13 +58,13 @@ const Header = () => {
           <div className={classes.bar}>
             <div className={classes.fillBar}></div>
           </div>
-          <p className={classes.counterGames}>10</p>
+          <p className={classes.counterGames}>{allWiiGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={allConsole}></img>
           <p className={classes.nameConsole}>OTHER </p>
           <div className={classes.bar}></div>
-          <p className={classes.counterGames}>10</p>
+          <p className={classes.counterGames}>{allOtherGame}</p>
         </div>
       </div>
     </div>
