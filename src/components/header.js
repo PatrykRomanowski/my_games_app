@@ -35,6 +35,10 @@ const Header = () => {
     });
   }, [gameCtx]);
 
+  const calculationFillofBar = (numersOfGames) => {
+    return (numersOfGames / gameCtx.totalGames) * 100 + "%";
+  };
+
   return (
     <div className={classes.header}>
       <img className={classes.mainImage} src={pad}></img>
@@ -43,27 +47,53 @@ const Header = () => {
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={switchIcon}></img>
           <p className={classes.nameConsole}>SWITCH </p>
-          <div className={classes.bar}></div>
+          <div className={classes.bar}>
+            <div
+              className={classes.fillBar}
+              style={{
+                width: `${calculationFillofBar(allSwitchGame)}`,
+              }}
+            ></div>
+          </div>
           <p className={classes.counterGames}>{allSwitchGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={dsIcon}></img>
           <p className={classes.nameConsole}>3DS </p>
-          <div className={classes.bar}></div>
+          <div className={classes.bar}>
+            <div
+              className={classes.fillBar}
+              style={{
+                width: `${calculationFillofBar(all3dsGame)}`,
+              }}
+            ></div>
+          </div>
           <p className={classes.counterGames}>{all3dsGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={wiiIcon}></img>
           <p className={classes.nameConsole}>WII </p>
           <div className={classes.bar}>
-            <div className={classes.fillBar}></div>
+            <div
+              className={classes.fillBar}
+              style={{
+                width: `${calculationFillofBar(allWiiGame)}`,
+              }}
+            ></div>
           </div>
           <p className={classes.counterGames}>{allWiiGame}</p>
         </div>
         <div className={classes.barConteiner}>
           <img className={classes.icon} src={allConsole}></img>
           <p className={classes.nameConsole}>OTHER </p>
-          <div className={classes.bar}></div>
+          <div className={classes.bar}>
+            <div
+              className={classes.fillBar}
+              style={{
+                width: `${calculationFillofBar(allOtherGame)}`,
+              }}
+            ></div>
+          </div>
           <p className={classes.counterGames}>{allOtherGame}</p>
         </div>
       </div>
