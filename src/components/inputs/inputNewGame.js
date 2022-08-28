@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
+
+import GameContext from "../../store/game-context";
 
 import classes from "./inputNewGame.module.css";
 
@@ -7,6 +9,8 @@ const InputNewGame = (props) => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    let responseData = [];
 
     const enterdedGame = newGameInput.current.value;
 
@@ -27,18 +31,22 @@ const InputNewGame = (props) => {
       })
       .then(async () => {
         const newObject = await fetch(postURL);
-        const responseData = await newObject.json();
+        responseData = await newObject.json();
+      })
+      .then(() => {
         console.log(responseData);
+        props.addNewGame(responseData);
       });
+
     console.log(enterdedGame);
-    props.addNewGame(enterdedGame);
+    console.log(responseData);
     newGameInput.current.value = "";
   };
 
   return (
     <form onSubmit={onSubmitHandler} className={classes.container}>
-      <input className={classes.input} ref={newGameInput} />{" "}
-      <button className={classes.button}> ADD GAMES </button>{" "}
+      <input className={classes.input} ref={newGameInput} />
+      <button className={classes.button}> ADD GAMES </button>
     </form>
   );
 };

@@ -33,15 +33,18 @@ const ConsoleItem = (props) => {
     gameCtx.initialGame(newGameForCounterGames);
   }, []);
 
-  const addNewGame = (enterdedGame) => {
-    console.log(enterdedGame);
-    const newItem = {
-      id: Math.random() * 9999999,
-      games: enterdedGame,
-    };
+  const addNewGame = (games) => {
+    const updatedMyGame = [];
 
-    setMyGame((prev) => [...prev, newItem]);
+    for (const key in games) {
+      console.log(key);
+      updatedMyGame.push({
+        id: key,
+        games: games[key].game,
+      });
+    }
 
+    setMyGame(updatedMyGame);
     gameCtx.addGame(props.console.myConsole);
   };
 

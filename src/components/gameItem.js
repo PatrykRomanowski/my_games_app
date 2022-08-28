@@ -2,7 +2,6 @@ import React from "react";
 
 import DeleteGameButton from "./buttons/deleteGameButton";
 
-import deleteButton from "../assets/icons/delete.png";
 import moreButton from "../assets/icons/more.png";
 
 import classes from "./gameItem.module.css";
