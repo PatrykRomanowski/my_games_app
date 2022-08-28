@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import classes from "./consoleItem.module.css";
 
 import GameItem from "./gameItem";
-import InputNewGame from "./inputNewGame";
+import InputNewGame from "./inputs/inputNewGame";
+import MoreForListButton from "./buttons/moreForListutton";
 
 import GameContext from "../store/game-context";
 
@@ -41,27 +42,30 @@ const ConsoleItem = (props) => {
 
     setMyGame((prev) => [...prev, newItem]);
 
-    console.log("dziala item");
-    startGamecounter();
     gameCtx.addGame(props.console.myConsole);
   };
 
   const deleteGameHandler = (itemID) => {
     const newListGame = myGame.filter((item) => item.id !== itemID);
     setMyGame(newListGame);
+    gameCtx.deleteGame(props.console.myConsole);
   };
+  let gameCounter = 0;
 
-  const startGamecounter = () => {};
-
-  const gameList = myGame.map((key) => (
-    <GameItem
-      key={key.id}
-      gameID={key.id}
-      name={key.games}
-      consoleID={props.consoleID}
-      deleteGameHandler={deleteGameHandler}
-    />
-  ));
+  const gameList = myGame.map((key) => {
+    gameCounter = gameCounter + 1;
+    return gameCounter <= 5 ? (
+      <GameItem
+        key={key.id}
+        gameID={key.id}
+        name={key.games}
+        consoleID={props.consoleID}
+        deleteGameHandler={deleteGameHandler}
+      />
+    ) : (
+      <MoreForListButton />
+    );
+  });
 
   return (
     <div className={classes.cardItem}>

@@ -25,6 +25,22 @@ const gameReducer = (state, action) => {
     };
   }
 
+  if (action.type === "DELETE_ITEM") {
+    const updateGameCounter = state.totalGames - 1;
+
+    const indexOfConsole = state.items.findIndex(
+      (item) => item.consoleName === action.item
+    );
+
+    state.items[indexOfConsole].totalGames =
+      state.items[indexOfConsole].totalGames - 1;
+
+    return {
+      items: state.items,
+      totalGames: updateGameCounter,
+    };
+  }
+
   if (action.type === "INITIAL_ITEM") {
     const updateGameCounter = state.totalGames + action.item.totalGames;
 
@@ -54,11 +70,16 @@ const GameProvider = (props) => {
     dispatchGameState({ type: "INITIAL_ITEM", item: item });
   };
 
+  const deleteItemHandler = (item) => {
+    dispatchGameState({ type: "DELETE_ITEM", item: item });
+  };
+
   const gameContext = {
     totalGames: gameState.totalGames,
     items: gameState.items,
     addGame: addItemHandler,
     initialGame: initilaItemHandler,
+    deleteGame: deleteItemHandler,
   };
 
   return (

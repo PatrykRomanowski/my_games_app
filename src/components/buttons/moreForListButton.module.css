@@ -1,0 +1,16 @@
+.button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  margin-bottom: 0.5rem;
+  height: 2rem;
+}
+
+.image {
+  height: 100%;
+}

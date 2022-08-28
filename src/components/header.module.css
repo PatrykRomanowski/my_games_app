@@ -24,12 +24,14 @@
   top: 0;
   left: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 .chart {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 1rem;
 }
 
 .icon {
@@ -48,7 +50,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.2rem;
 }
 
 .mainImage {
