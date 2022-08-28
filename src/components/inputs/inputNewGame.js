@@ -1,6 +1,4 @@
-import React, { useRef, useContext } from "react";
-
-import GameContext from "../../store/game-context";
+import React, { useRef } from "react";
 
 import classes from "./inputNewGame.module.css";
 

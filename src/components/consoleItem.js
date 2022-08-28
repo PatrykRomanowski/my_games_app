@@ -6,6 +6,8 @@ import GameItem from "./gameItem";
 import InputNewGame from "./inputs/inputNewGame";
 import MoreForListButton from "./buttons/moreForListutton";
 
+import addIcon from "../assets/icons/add.png";
+
 import GameContext from "../store/game-context";
 
 const ConsoleItem = (props) => {
@@ -65,16 +67,21 @@ const ConsoleItem = (props) => {
         consoleID={props.consoleID}
         deleteGameHandler={deleteGameHandler}
       />
-    ) : (
-      <MoreForListButton />
-    );
+    ) : null;
   });
 
   return (
     <div className={classes.cardItem}>
-      <div className={classes.cardItemHeader}>{props.console.myConsole}</div>
+      <div className={classes.cardItemHeader}>
+        <div className={classes.leftPanel}></div>
+        <div className={classes.consoleName}> {props.console.myConsole}</div>
+        <div className={classes.rightPanel}>
+          <img className={classes.addButton} src={addIcon} />
+        </div>
+      </div>
       <InputNewGame addNewGame={addNewGame} consoleID={props.consoleID} />
       {gameList}
+      {gameCounter >= 6 ? <MoreForListButton /> : null}
     </div>
   );
 };
