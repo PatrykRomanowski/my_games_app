@@ -1,5 +1,7 @@
 .cardItem {
   display: flex;
+  flex-wrap: wrap;
+  width: 300px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
   background-color: white;
@@ -11,8 +13,7 @@
   display: flex;
   font-family: "Anton";
   color: black;
-  width: 30vw;
-  min-width: 100%;
+  min-width: 180px;
   min-height: 4rem;
   background-color: grey;
   justify-content: space-between;
@@ -28,6 +29,9 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+  background-color: gray;
+  border-radius: 14px;
+  border: none;
 }
 
 .consoleName {

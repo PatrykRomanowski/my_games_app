@@ -12,6 +12,7 @@ import GameContext from "../store/game-context";
 
 const ConsoleItem = (props) => {
   const [myGame, setMyGame] = useState([]);
+  const [addNewGameToggle, setAddNewGameToogle] = useState(true);
 
   const gameCtx = useContext(GameContext);
   console.log("console item");
@@ -55,6 +56,11 @@ const ConsoleItem = (props) => {
     setMyGame(newListGame);
     gameCtx.deleteGame(props.console.myConsole);
   };
+
+  const showAddNewGamePanelHandler = () => {
+    setAddNewGameToogle(!addNewGameToggle);
+  };
+
   let gameCounter = 0;
 
   const gameList = myGame.map((key) => {
@@ -75,11 +81,16 @@ const ConsoleItem = (props) => {
       <div className={classes.cardItemHeader}>
         <div className={classes.leftPanel}></div>
         <div className={classes.consoleName}> {props.console.myConsole}</div>
-        <div className={classes.rightPanel}>
+        <button
+          onClick={showAddNewGamePanelHandler}
+          className={classes.rightPanel}
+        >
           <img className={classes.addButton} src={addIcon} />
-        </div>
+        </button>
       </div>
-      <InputNewGame addNewGame={addNewGame} consoleID={props.consoleID} />
+      {addNewGameToggle && (
+        <InputNewGame addNewGame={addNewGame} consoleID={props.consoleID} />
+      )}
       {gameList}
       {gameCounter >= 6 ? <MoreForListButton /> : null}
     </div>

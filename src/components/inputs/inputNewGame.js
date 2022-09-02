@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 
+import TextField from "@mui/material/TextField";
+
 import classes from "./inputNewGame.module.css";
 
 const InputNewGame = (props) => {
   const newGameInput = useRef();
+  const whereIsGameInput = useRef();
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -11,6 +14,7 @@ const InputNewGame = (props) => {
     let responseData = [];
 
     const enterdedGame = newGameInput.current.value;
+    const eneteredWhereIsGame = whereIsGameInput.current.value;
 
     const postURL =
       "https://mygames-12607-default-rtdb.firebaseio.com/myGames/console/" +
@@ -41,9 +45,29 @@ const InputNewGame = (props) => {
     newGameInput.current.value = "";
   };
 
+  const InputElement = (props) => {
+    return (
+      <TextField
+        id="outlined-basic"
+        label={props.name}
+        variant="outlined"
+        size="small"
+        sx={{
+          margin: 1,
+          width: 250,
+        }}
+        inputRef={props.refName}
+      />
+    );
+  };
+
   return (
     <form onSubmit={onSubmitHandler} className={classes.container}>
-      <input className={classes.input} ref={newGameInput} />
+      {/* <input className={classes.input} ref={newGameInput} /> */}
+
+      <InputElement name="GAME TILTE" refName={newGameInput} />
+      <InputElement name="WHERE IS THIS GAME?" refName={whereIsGameInput} />
+
       <button className={classes.button}> ADD GAMES </button>
     </form>
   );
