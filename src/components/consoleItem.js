@@ -12,7 +12,7 @@ import GameContext from "../store/game-context";
 
 const ConsoleItem = (props) => {
   const [myGame, setMyGame] = useState([]);
-  const [addNewGameToggle, setAddNewGameToogle] = useState(true);
+  const [addNewGameToggle, setAddNewGameToogle] = useState(false);
 
   const gameCtx = useContext(GameContext);
   console.log("console item");
@@ -49,6 +49,7 @@ const ConsoleItem = (props) => {
 
     setMyGame(updatedMyGame);
     gameCtx.addGame(props.console.myConsole);
+    setAddNewGameToogle(!addNewGameToggle);
   };
 
   const deleteGameHandler = (itemID) => {
