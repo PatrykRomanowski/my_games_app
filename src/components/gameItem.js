@@ -2,7 +2,7 @@ import React from "react";
 
 import DeleteGameButton from "./buttons/deleteGameButton";
 
-import moreButton from "../assets/icons/more.png";
+import MoreInfo from "./buttons/moreInfoAboutGame";
 
 import classes from "./gameItem.module.css";
 
@@ -19,9 +19,7 @@ const GameItem = (props) => {
         consoleID={props.consoleID}
       />
       <p className={classes.price}>{props.name}</p>
-      <button className={classes.rightPanel}>
-        <img className={classes.moreButton} src={moreButton}></img>
-      </button>
+      <MoreInfo />
     </div>
   );
 };

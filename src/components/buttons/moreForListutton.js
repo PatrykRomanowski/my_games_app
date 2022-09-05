@@ -6,11 +6,9 @@ import classes from "./moreForListButton.module.css";
 
 const MoreForListButton = () => {
   return (
-    <>
-      <button className={classes.button}>
-        <img className={classes.image} src={more_list}></img>
-      </button>
-    </>
+    <button className={classes.button}>
+      <img className={classes.image} src={more_list}></img>
+    </button>
   );
 };
 

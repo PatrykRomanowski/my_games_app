@@ -1,0 +1,16 @@
+.rightPanel {
+  width: 20%;
+  background-color: green;
+  height: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.moreButton {
+  height: 100%;
+}

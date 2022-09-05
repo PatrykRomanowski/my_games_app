@@ -1,0 +1,11 @@
+.cart {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background-color: aqua;
+}
+
+.button {
+  cursor: pointer;
+  background-color: red;
+}
