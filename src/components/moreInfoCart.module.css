@@ -1,5 +1,4 @@
 .cart {
-  position: fixed;
   width: 50%;
   height: 50%;
   background-color: aqua;
@@ -10,10 +9,13 @@
   background-color: red;
 }
 
-.card {
-  position: relative;
+.infoCart {
+  position: fixed;
+  left: calc(50% - 25vw);
+  top: 20%;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -21,4 +23,5 @@
   background-color: white;
   margin: 1rem;
   z-index: 30;
+  width: 50vw;
 }

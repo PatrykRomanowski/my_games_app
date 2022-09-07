@@ -23,6 +23,9 @@ const ConsoleItem = (props) => {
       fetchMyGame.push({
         id: key,
         games: props.console.gamesOnConsole[key].game,
+        location: props.console.gamesOnConsole[key].location,
+        exactLocation: props.console.gamesOnConsole[key].exactLocation,
+        price: props.console.gamesOnConsole[key].price,
       });
     }
     setMyGame(fetchMyGame);
@@ -43,6 +46,9 @@ const ConsoleItem = (props) => {
       updatedMyGame.push({
         id: key,
         games: games[key].game,
+        location: games[key].location,
+        exactLocation: games[key].exactLocation,
+        price: games[key].price,
       });
     }
 
@@ -77,7 +83,7 @@ const ConsoleItem = (props) => {
       <GameItem
         key={key.id}
         gameID={key.id}
-        name={key.games}
+        gameInfo={key}
         consoleID={props.consoleID}
         deleteGameHandler={deleteGameHandler}
         moreInfoHandler={moreInfoHandler}

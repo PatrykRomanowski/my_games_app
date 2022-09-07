@@ -10,9 +10,16 @@ const MoreInfoCart = (props) => {
     props.hiddenMoreInfo();
   };
 
+  console.log(props.name);
+
   return (
     <>
-      <div onClick={hiddenCartHandler} className={classes.card}>
+      <div className={classes.infoCart}>
+        <div>{props.name}</div>
+        <div>{props.location}</div>
+        <div>{props.exactLocation}</div>
+        <div>{props.price}</div>
+
         <button className={classes.button} onClick={hiddenCartHandler}>
           hidden Cart
         </button>

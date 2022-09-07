@@ -27,6 +27,10 @@ const MoreInfo = (props) => {
         <MoreInfoCart
           hiddenCart={showHiddenCartHandler}
           hiddenMoreInfo={hiddenMoreInfo}
+          name={props.gameInfo.games}
+          price={props.gameInfo.price}
+          exactLocation={props.gameInfo.exactLocation}
+          location={props.gameInfo.location}
         />
       )}
     </>
