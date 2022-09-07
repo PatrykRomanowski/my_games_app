@@ -1,12 +1,10 @@
-.cart {
-  width: 50%;
-  height: 50%;
-  background-color: aqua;
-}
-
 .button {
   cursor: pointer;
-  background-color: red;
+  border-radius: 15px;
+  height: 30px;
+  width: 30%;
+  align-self: center;
+  border: 1px solid brown;
 }
 
 .infoCart {
@@ -24,4 +22,19 @@
   margin: 1rem;
   z-index: 30;
   width: 50vw;
+}
+
+.button:hover {
+  background-color: brown;
+  border: 1px solid white;
+  color: white;
+}
+
+p {
+  text-transform: uppercase;
+  color: brown;
+}
+
+.parametersOfGame {
+  margin-bottom: 1rem;
 }

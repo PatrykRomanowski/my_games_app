@@ -13,6 +13,7 @@ import GameContext from "../store/game-context";
 const ConsoleItem = (props) => {
   const [myGame, setMyGame] = useState([]);
   const [addNewGameToggle, setAddNewGameToogle] = useState(false);
+  const [showMoreGame, serShowMoreGame] = useState(true);
 
   const gameCtx = useContext(GameContext);
 
@@ -76,21 +77,39 @@ const ConsoleItem = (props) => {
   };
 
   let gameCounter = 0;
+  let gameList = [{}];
 
-  const gameList = myGame.map((key) => {
-    gameCounter = gameCounter + 1;
-    return gameCounter <= 5 ? (
-      <GameItem
-        key={key.id}
-        gameID={key.id}
-        gameInfo={key}
-        consoleID={props.consoleID}
-        deleteGameHandler={deleteGameHandler}
-        moreInfoHandler={moreInfoHandler}
-        hiddenMoreInfo={hiddenMoreInfo}
-      />
-    ) : null;
-  });
+  if (!showMoreGame) {
+    gameList = myGame.map((key) => {
+      gameCounter = gameCounter + 1;
+      return gameCounter <= 5 ? (
+        <GameItem
+          key={key.id}
+          gameID={key.id}
+          gameInfo={key}
+          consoleID={props.consoleID}
+          deleteGameHandler={deleteGameHandler}
+          moreInfoHandler={moreInfoHandler}
+          hiddenMoreInfo={hiddenMoreInfo}
+        />
+      ) : null;
+    });
+  } else {
+    gameList = myGame.map((key) => {
+      gameCounter = gameCounter + 1;
+      return (
+        <GameItem
+          key={key.id}
+          gameID={key.id}
+          gameInfo={key}
+          consoleID={props.consoleID}
+          deleteGameHandler={deleteGameHandler}
+          moreInfoHandler={moreInfoHandler}
+          hiddenMoreInfo={hiddenMoreInfo}
+        />
+      );
+    });
+  }
 
   return (
     <div className={classes.cardItem}>

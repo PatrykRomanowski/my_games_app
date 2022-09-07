@@ -19,7 +19,6 @@ const GameItem = (props) => {
     props.hiddenMoreInfo();
   };
 
-  console.log(props.gameInfo);
   return (
     <div className={classes.gameItem}>
       <DeleteGameButton

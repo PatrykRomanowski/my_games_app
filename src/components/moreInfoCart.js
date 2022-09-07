@@ -15,13 +15,25 @@ const MoreInfoCart = (props) => {
   return (
     <>
       <div className={classes.infoCart}>
-        <div>{props.name}</div>
-        <div>{props.location}</div>
-        <div>{props.exactLocation}</div>
-        <div>{props.price}</div>
+        <div className={classes.parametersOfGame}>
+          <p>name of game: </p>
+          {props.name}
+        </div>
+        <div className={classes.parametersOfGame}>
+          <p>location:</p>
+          {props.location}
+        </div>
+        <div className={classes.parametersOfGame}>
+          <p>exact location</p>
+          {props.exactLocation}
+        </div>
+        <div className={classes.parametersOfGame}>
+          <p>price:</p>
+          {props.price} PLN
+        </div>
 
         <button className={classes.button} onClick={hiddenCartHandler}>
-          hidden Cart
+          hidden cart
         </button>
       </div>
     </>
