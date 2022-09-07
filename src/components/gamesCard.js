@@ -30,8 +30,22 @@ const GamesCard = (props) => {
     fetchGames();
   }, []);
 
+  const moreInfoHandler = () => {
+    props.moreInfoHandler();
+  };
+
+  const hiddenMoreInfo = () => {
+    props.hiddenMoreInfo();
+  };
+
   const gameList = myConsole.map((item) => (
-    <ConsoleItem key={item.id} consoleID={item.id} console={item} />
+    <ConsoleItem
+      key={item.id}
+      consoleID={item.id}
+      console={item}
+      moreInfoHandler={moreInfoHandler}
+      hiddenMoreInfo={hiddenMoreInfo}
+    />
   ));
 
   return (

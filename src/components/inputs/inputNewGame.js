@@ -2,8 +2,6 @@ import React, { useRef } from "react";
 
 import TextField from "@mui/material/TextField";
 
-import Modal from "../../UI/modal";
-
 import classes from "./inputNewGame.module.css";
 
 const InputNewGame = (props) => {
@@ -103,27 +101,25 @@ const InputNewGame = (props) => {
   };
 
   return (
-    <Modal>
-      <form onSubmit={onSubmitHandler} className={classes.container}>
-        {/* <input className={classes.input} ref={newGameInput} /> */}
+    <form onSubmit={onSubmitHandler} className={classes.container}>
+      {/* <input className={classes.input} ref={newGameInput} /> */}
 
-        <InputElement name="GAME TILTE" refName={newGameInput} />
-        <InputSelectElement
-          name="WHERE IS THIS GAME?"
-          refName={whereIsGameInput}
-        ></InputSelectElement>
-        <InputElement
-          name="EXACT LOCATION"
-          refName={exactLocationInput}
-        ></InputElement>
-        <InputElement
-          name="PURCHASE PRICE"
-          refName={purchasePriceInput}
-        ></InputElement>
+      <InputElement name="GAME TILTE" refName={newGameInput} />
+      <InputSelectElement
+        name="WHERE IS THIS GAME?"
+        refName={whereIsGameInput}
+      ></InputSelectElement>
+      <InputElement
+        name="EXACT LOCATION"
+        refName={exactLocationInput}
+      ></InputElement>
+      <InputElement
+        name="PURCHASE PRICE"
+        refName={purchasePriceInput}
+      ></InputElement>
 
-        <button className={classes.button}> ADD GAMES </button>
-      </form>
-    </Modal>
+      <button className={classes.button}> ADD GAMES </button>
+    </form>
   );
 };
 

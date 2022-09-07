@@ -15,7 +15,6 @@ const ConsoleItem = (props) => {
   const [addNewGameToggle, setAddNewGameToogle] = useState(false);
 
   const gameCtx = useContext(GameContext);
-  console.log("console item");
 
   useEffect(() => {
     const fetchMyGame = [];
@@ -58,6 +57,14 @@ const ConsoleItem = (props) => {
     gameCtx.deleteGame(props.console.myConsole);
   };
 
+  const moreInfoHandler = () => {
+    props.moreInfoHandler();
+  };
+
+  const hiddenMoreInfo = () => {
+    props.hiddenMoreInfo();
+  };
+
   const showAddNewGamePanelHandler = () => {
     setAddNewGameToogle(!addNewGameToggle);
   };
@@ -73,6 +80,8 @@ const ConsoleItem = (props) => {
         name={key.games}
         consoleID={props.consoleID}
         deleteGameHandler={deleteGameHandler}
+        moreInfoHandler={moreInfoHandler}
+        hiddenMoreInfo={hiddenMoreInfo}
       />
     ) : null;
   });

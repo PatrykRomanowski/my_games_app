@@ -6,13 +6,16 @@ import moreButton from "../../assets/icons/more.png";
 
 import classes from "./moreInfoAboutGame.module.css";
 
-const MoreInfo = () => {
+const MoreInfo = (props) => {
   const [showInfoCart, setShowInfoCart] = useState(false);
 
   const showHiddenCartHandler = () => {
     setShowInfoCart(!showInfoCart);
-    console.log(showInfoCart);
-    console.log("dziala");
+    props.moreInfoHandler();
+  };
+
+  const hiddenMoreInfo = () => {
+    props.hiddenMoreInfo();
   };
 
   return (
@@ -20,7 +23,12 @@ const MoreInfo = () => {
       <button onClick={showHiddenCartHandler} className={classes.rightPanel}>
         <img className={classes.moreButton} src={moreButton}></img>
       </button>
-      {showInfoCart && <MoreInfoCart hiddenCart={showHiddenCartHandler} />}
+      {showInfoCart && (
+        <MoreInfoCart
+          hiddenCart={showHiddenCartHandler}
+          hiddenMoreInfo={hiddenMoreInfo}
+        />
+      )}
     </>
   );
 };

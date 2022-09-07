@@ -11,6 +11,14 @@ const GameItem = (props) => {
     props.deleteGameHandler(itemID);
   };
 
+  const moreInfoHandler = () => {
+    props.moreInfoHandler();
+  };
+
+  const hiddenMoreInfo = () => {
+    props.hiddenMoreInfo();
+  };
+
   return (
     <div className={classes.gameItem}>
       <DeleteGameButton
@@ -19,7 +27,10 @@ const GameItem = (props) => {
         consoleID={props.consoleID}
       />
       <p className={classes.price}>{props.name}</p>
-      <MoreInfo />
+      <MoreInfo
+        moreInfoHandler={moreInfoHandler}
+        hiddenMoreInfo={hiddenMoreInfo}
+      />
     </div>
   );
 };

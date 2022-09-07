@@ -7,14 +7,12 @@ import classes from "./moreInfoCart.module.css";
 const MoreInfoCart = (props) => {
   const hiddenCartHandler = () => {
     props.hiddenCart();
-    console.log("klik");
+    props.hiddenMoreInfo();
   };
 
   return (
     <>
-      <Modal></Modal>
-
-      <div onClick={hiddenCartHandler} className={classes.cart}>
+      <div onClick={hiddenCartHandler} className={classes.card}>
         <button className={classes.button} onClick={hiddenCartHandler}>
           hidden Cart
         </button>
