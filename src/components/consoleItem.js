@@ -5,6 +5,7 @@ import classes from "./consoleItem.module.css";
 import GameItem from "./gameItem";
 import InputNewGame from "./inputs/inputNewGame";
 import MoreForListButton from "./buttons/moreForListutton";
+import BackGameListButton from "./buttons/backGameList";
 
 import addIcon from "../assets/icons/add.png";
 
@@ -13,7 +14,8 @@ import GameContext from "../store/game-context";
 const ConsoleItem = (props) => {
   const [myGame, setMyGame] = useState([]);
   const [addNewGameToggle, setAddNewGameToogle] = useState(false);
-  const [showMoreGame, serShowMoreGame] = useState(true);
+  const [showMoreGame, serShowMoreGame] = useState(false);
+  const [nextCart, setNextCart] = useState(5);
 
   const gameCtx = useContext(GameContext);
 
@@ -76,13 +78,22 @@ const ConsoleItem = (props) => {
     setAddNewGameToogle(!addNewGameToggle);
   };
 
+  const nextCartHandler = () => {
+    console.log("click");
+    setNextCart(nextCart + 5);
+  };
+
+  const backCartHandler = () => {
+    setNextCart(nextCart - 5);
+  };
+
   let gameCounter = 0;
   let gameList = [{}];
 
   if (!showMoreGame) {
     gameList = myGame.map((key) => {
       gameCounter = gameCounter + 1;
-      return gameCounter <= 5 ? (
+      return gameCounter <= nextCart && gameCounter >= nextCart - 5 ? (
         <GameItem
           key={key.id}
           gameID={key.id}
@@ -93,21 +104,6 @@ const ConsoleItem = (props) => {
           hiddenMoreInfo={hiddenMoreInfo}
         />
       ) : null;
-    });
-  } else {
-    gameList = myGame.map((key) => {
-      gameCounter = gameCounter + 1;
-      return (
-        <GameItem
-          key={key.id}
-          gameID={key.id}
-          gameInfo={key}
-          consoleID={props.consoleID}
-          deleteGameHandler={deleteGameHandler}
-          moreInfoHandler={moreInfoHandler}
-          hiddenMoreInfo={hiddenMoreInfo}
-        />
-      );
     });
   }
 
@@ -127,7 +123,12 @@ const ConsoleItem = (props) => {
         <InputNewGame addNewGame={addNewGame} consoleID={props.consoleID} />
       )}
       {gameList}
-      {gameCounter >= 6 ? <MoreForListButton /> : null}
+      {gameCounter >= 6 ? (
+        <div className={classes.listButtonContainer}>
+          <BackGameListButton backCart={backCartHandler} />
+          <MoreForListButton nextCart={nextCartHandler} />
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -41,3 +41,9 @@
 .leftPanel {
   width: 20%;
 }
+
+.listButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
