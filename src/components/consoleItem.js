@@ -16,6 +16,7 @@ const ConsoleItem = (props) => {
   const [addNewGameToggle, setAddNewGameToogle] = useState(false);
   const [showMoreGame, serShowMoreGame] = useState(false);
   const [nextCart, setNextCart] = useState(5);
+  const [actualPage, setActualPage] = useState(1);
 
   const gameCtx = useContext(GameContext);
 
@@ -79,21 +80,28 @@ const ConsoleItem = (props) => {
   };
 
   const nextCartHandler = () => {
-    console.log("click");
-    setNextCart(nextCart + 5);
+    if (actualPage < myGame.length / 5) {
+      console.log(myGame.length);
+      setActualPage(actualPage + 1);
+      setNextCart(nextCart + 4);
+    }
   };
 
   const backCartHandler = () => {
-    setNextCart(nextCart - 5);
+    if (actualPage > 1) {
+      setActualPage(actualPage - 1);
+      setNextCart(nextCart - 4);
+    }
   };
 
-  let gameCounter = 0;
+  let gameCounter = -1;
   let gameList = [{}];
 
   if (!showMoreGame) {
     gameList = myGame.map((key) => {
       gameCounter = gameCounter + 1;
-      return gameCounter <= nextCart && gameCounter >= nextCart - 5 ? (
+
+      return gameCounter <= nextCart && gameCounter >= nextCart - 4 ? (
         <GameItem
           key={key.id}
           gameID={key.id}

@@ -11,6 +11,7 @@
   height: 2rem;
   cursor: pointer;
   margin: 5px;
+  align-self: flex-end;
 }
 
 .image {
