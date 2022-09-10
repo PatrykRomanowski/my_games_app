@@ -10,7 +10,7 @@ import dsIcon from "../assets/icons/DS.png";
 import wiiIcon from "../assets/icons/WII.png";
 import allConsole from "../assets/icons/allConsole.png";
 
-const Header = () => {
+const Header = (props) => {
   const [allGameCounter, setAllGameCounter] = useState(0);
   const [allWiiGame, setAllWiiGame] = useState(0);
   const [allSwitchGame, setAllSwitchGame] = useState(0);
@@ -37,6 +37,10 @@ const Header = () => {
 
   const calculationFillofBar = (numersOfGames) => {
     return (numersOfGames / gameCtx.totalGames) * 100 + "%";
+  };
+
+  const onNewConsoleHandler = () => {
+    props.onShowInputNewConsoleHandler();
   };
 
   return (
@@ -99,8 +103,13 @@ const Header = () => {
       </div>
       <div className={classes.container}>
         <div className={classes.container}></div>
-        <button className={classes.buttonNewConsoles}>
-          <p className={classes.buttonName}>ADD CONSOLE</p>
+        <button
+          onClick={onNewConsoleHandler}
+          className={classes.buttonNewConsoles}
+        >
+          <p className={classes.buttonName}>
+            {props.showInputNewConsole ? "HIDDEN" : "ADD NEW CONSOLE"}
+          </p>
         </button>
       </div>
     </div>
