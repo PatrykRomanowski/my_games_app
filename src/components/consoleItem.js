@@ -83,18 +83,18 @@ const ConsoleItem = (props) => {
     if (actualPage < myGame.length / 5) {
       console.log(myGame.length);
       setActualPage(actualPage + 1);
-      setNextCart(nextCart + 4);
+      setNextCart(nextCart + 5);
     }
   };
 
   const backCartHandler = () => {
     if (actualPage > 1) {
       setActualPage(actualPage - 1);
-      setNextCart(nextCart - 4);
+      setNextCart(nextCart - 5);
     }
   };
 
-  let gameCounter = -1;
+  let gameCounter = 0;
   let gameList = [{}];
 
   if (!showMoreGame) {

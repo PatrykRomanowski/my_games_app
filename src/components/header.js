@@ -97,6 +97,12 @@ const Header = () => {
           <p className={classes.counterGames}>{allOtherGame}</p>
         </div>
       </div>
+      <div className={classes.container}>
+        <div className={classes.container}></div>
+        <button className={classes.buttonNewConsoles}>
+          <p className={classes.buttonName}>ADD CONSOLE</p>
+        </button>
+      </div>
     </div>
   );
 };
