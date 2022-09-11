@@ -6,6 +6,7 @@ import GameItem from "./gameItem";
 import InputNewGame from "./inputs/inputNewGame";
 import MoreForListButton from "./buttons/moreForListutton";
 import BackGameListButton from "./buttons/backGameList";
+import DeleteConsoleButton from "./buttons/deleteConsoleButton";
 
 import addIcon from "../assets/icons/add.png";
 
@@ -118,7 +119,7 @@ const ConsoleItem = (props) => {
   return (
     <div className={classes.cardItem}>
       <div className={classes.cardItemHeader}>
-        <div className={classes.leftPanel}></div>
+        <DeleteConsoleButton />
         <div className={classes.consoleName}> {props.console.myConsole}</div>
         <button
           onClick={showAddNewGamePanelHandler}

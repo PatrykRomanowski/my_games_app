@@ -1,0 +1,10 @@
+.deleteConsoleButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+}
+
+.deleteConsoleImg {
+  width: 60%;
+}
