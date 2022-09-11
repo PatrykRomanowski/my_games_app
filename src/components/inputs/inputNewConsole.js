@@ -7,9 +7,27 @@ import classes from "./inputNewConsole.module.css";
 const InputNewConsole = () => {
   const newConsoleInput = useRef();
 
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    const entredNewConsole = newConsoleInput.current.value;
+
+    const postURL =
+      "https://mygames-12607-default-rtdb.firebaseio.com/myGames/console.json";
+
+    const response = await fetch(postURL, {
+      method: "POST",
+      body: JSON.stringify({
+        name: entredNewConsole,
+      }),
+    });
+
+    newConsoleInput.current.value = "";
+  };
+
   return (
     <div className={classes.inputNewConsoleContainer}>
-      <form>
+      <form onSubmit={onSubmitHandler}>
         <TextField
           id="outlined-basic"
           label="NEW CONSOLE"
