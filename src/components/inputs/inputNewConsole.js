@@ -4,11 +4,13 @@ import TextField from "@mui/material/TextField";
 
 import classes from "./inputNewConsole.module.css";
 
-const InputNewConsole = () => {
+const InputNewConsole = (props) => {
   const newConsoleInput = useRef();
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    let responseData = [];
 
     const entredNewConsole = newConsoleInput.current.value;
 
@@ -20,7 +22,20 @@ const InputNewConsole = () => {
       body: JSON.stringify({
         name: entredNewConsole,
       }),
-    });
+    })
+      .then((response) => {
+        response.json();
+        console.log(response);
+      })
+      .then(async () => {
+        const newObject = await fetch(postURL);
+        responseData = await newObject.json();
+        console.log(responseData);
+      })
+      .then(() => {
+        console.log("XD");
+        props.updateMyConsole(responseData);
+      });
 
     newConsoleInput.current.value = "";
   };

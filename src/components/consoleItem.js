@@ -95,6 +95,11 @@ const ConsoleItem = (props) => {
     }
   };
 
+  const deleteConsole = (consoleID) => {
+    props.deleteConsole(consoleID);
+    console.log(consoleID);
+  };
+
   let gameCounter = 0;
   let gameList = [{}];
 
@@ -119,7 +124,10 @@ const ConsoleItem = (props) => {
   return (
     <div className={classes.cardItem}>
       <div className={classes.cardItemHeader}>
-        <DeleteConsoleButton />
+        <DeleteConsoleButton
+          consoleID={props.consoleID}
+          deleteConsole={deleteConsole}
+        />
         <div className={classes.consoleName}> {props.console.myConsole}</div>
         <button
           onClick={showAddNewGamePanelHandler}

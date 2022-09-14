@@ -11,7 +11,6 @@ import Modal from "./UI/modal";
 
 function App() {
   const [showHiddenModal, setShowHiddenModal] = useState(false);
-  const [showInputNewConsole, setShowInputNewConsole] = useState(false);
 
   const showModal = () => {
     setShowHiddenModal(true);
@@ -21,19 +20,11 @@ function App() {
     setShowHiddenModal(false);
   };
 
-  const onShowInputNewConsoleHandler = () => {
-    setShowInputNewConsole(!showInputNewConsole);
-  };
-
   return (
     <GameProvider>
       <div className="App">
         {showHiddenModal && <Modal />}
-        <Header
-          showInputNewConsole={showInputNewConsole}
-          onShowInputNewConsoleHandler={onShowInputNewConsoleHandler}
-        />
-        {showInputNewConsole && <InputNewConsole />}
+        <Header />
         <GamesCard moreInfoHandler={showModal} hiddenMoreInfo={hiddenModal} />
       </div>
     </GameProvider>

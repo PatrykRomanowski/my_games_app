@@ -72,38 +72,3 @@
   margin-left: 1rem;
   color: white;
 }
-
-.buttonNewConsoles {
-  box-sizing: border-box;
-  display: flex;
-  font-family: "Anton";
-  font-size: 16px;
-  background-color: transparent;
-  max-height: 50px;
-  margin: 10px;
-  color: white;
-  align-self: flex-end;
-  border-radius: 20px;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-.container {
-  flex-grow: 1;
-  display: flex;
-}
-
-.buttonName {
-  color: white;
-  padding: 10px;
-  width: 100%;
-  height: 100%;
-}
-
-.buttonNewConsoles:hover {
-  background-color: white;
-}
-
-.buttonName:hover {
-  color: var(--primary-color);
-}

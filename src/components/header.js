@@ -19,6 +19,8 @@ const Header = (props) => {
 
   const gameCtx = useContext(GameContext);
 
+  let updateOtherGameCounter = 0;
+
   useEffect(() => {
     setAllGameCounter(gameCtx.totalGames);
 
@@ -30,10 +32,13 @@ const Header = (props) => {
       } else if (item.consoleName === "SWITCH") {
         setAllSwitchGame(item.totalGames);
       } else {
-        setAllOtherGame(allOtherGame + item.totalGames);
+        console.log(item.totalGames);
+        updateOtherGameCounter = updateOtherGameCounter + item.totalGames;
+        console.log(updateOtherGameCounter);
       }
     });
-  }, [gameCtx]);
+    setAllOtherGame(updateOtherGameCounter);
+  }, [gameCtx.totalGames]);
 
   const calculationFillofBar = (numersOfGames) => {
     return (numersOfGames / gameCtx.totalGames) * 100 + "%";
@@ -103,14 +108,6 @@ const Header = (props) => {
       </div>
       <div className={classes.container}>
         <div className={classes.container}></div>
-        <button
-          onClick={onNewConsoleHandler}
-          className={classes.buttonNewConsoles}
-        >
-          <p className={classes.buttonName}>
-            {props.showInputNewConsole ? "HIDDEN" : "ADD NEW CONSOLE"}
-          </p>
-        </button>
       </div>
     </div>
   );
